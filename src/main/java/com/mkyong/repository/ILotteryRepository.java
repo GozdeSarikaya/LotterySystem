@@ -1,9 +1,6 @@
 package com.mkyong.repository;
 
 import com.mkyong.entity.Lottery;
-import com.mkyong.entity.Player;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

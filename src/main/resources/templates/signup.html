@@ -23,12 +23,25 @@
 <main role="main" class="container">
 
     <div class="starter-template">
-        <h1>Lottery List</h1>
+        <h1>Sign-up!</h1>
     </div>
 
-    <ol>
-        <li th:each="availableLottery : ${availableLotteries}" th:text="${availableLottery.toString()}"></li>
-    </ol>
+    <!--Sign up form-->
+    <form role="form" th:action="@{/submit}" th:method="post">
+        <lable>First Name</lable>
+        <input type="text" id="firstName" name="firstName">
+
+        <lable>Last Name</lable>
+        <input type="text" id="lastName" name="lastName">
+
+        <lable>Email Address</lable>
+        <input type="text" id="email" name="email">
+
+        <input type="submit">
+    </form>
+    <!--    <ol>
+            <li th:each="previousLottery : ${previousLotteries}" th:text="${previousLottery.toString()}"></li>
+        </ol>-->
 
 </main>
 <!-- /.container -->

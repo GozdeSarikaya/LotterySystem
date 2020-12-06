@@ -24,11 +24,8 @@ public class LotteryController {
 
     @Autowired
     LotteryService lotteryService;
-    // inject via application.properties
-    @Value("${welcome.message}")
-    private String message;
 
-    @PostMapping("/lottery/add")
+    @PostMapping("/add")
     public ResponseEntity<Void> addLottery(@RequestParam(name = "date") String date) throws ParseException {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         lotteryService.createLottery(df.parse(date));
@@ -43,15 +40,14 @@ public class LotteryController {
     }
 */
 
-    @GetMapping("/lottery/list")
+    @GetMapping("/list")
     public String lotterylist(Model model) {
         List<Lottery> availableLotteries = lotteryService.getAvailableLotteries();
-        model.addAttribute("message", message);
         model.addAttribute("availableLotteries", availableLotteries);
         return "lotterylist"; //view
     }
 
-    @GetMapping("/lottery/end")
+    @GetMapping("/end")
     public ResponseEntity<Void> endLottery() {
         Ticket winningticket = lotteryService.endLottery();
         return new ResponseEntity<>(CREATED);
@@ -63,10 +59,9 @@ public class LotteryController {
         return new ResponseEntity<>(CREATED);
     }*/
 
-    @GetMapping("/lottery/winners")
+    @GetMapping("/winners")
     public String winners(Model model) {
         List<Lottery> previousLotteries = lotteryService.getPreviousLotteries();
-        model.addAttribute("message", message);
         model.addAttribute("previousLotteries", previousLotteries);
         return "winners"; //view
     }

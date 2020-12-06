@@ -18,7 +18,7 @@ public class PlayerController {
     @Autowired
     PlayerService playerService;
 
-    @PostMapping("/singup")
+    @PostMapping("/submit")
     public ResponseEntity<Void> addPlayer(
             @RequestParam(name = "firstName") String firstName,
             @RequestParam(name = "lastName") String lastName,
@@ -28,13 +28,8 @@ public class PlayerController {
         return new ResponseEntity<>(CREATED);
     }
 
-/*    @PostMapping("/singup")
-    public String addPlayer(
-            @RequestParam(name = "firstName") String firstName,
-            @RequestParam(name = "lastName") String lastName,
-            @RequestParam(name = "email") String email) {
-
-        playerService.createPlayer(firstName, lastName, email);
+    @GetMapping("/signup")
+    public String addPlayer() {
         return "signup";
-    }*/
+    }
 }

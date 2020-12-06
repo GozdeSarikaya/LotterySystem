@@ -8,9 +8,6 @@ import javax.persistence.*;
 
 import com.sun.istack.NotNull;
 
-/**
- * Created by Remco on 14-11-2015.
- */
 @Entity
 @Table(name = "LOTTERY_LOTTERY")
 public class Lottery {
@@ -31,27 +28,14 @@ public class Lottery {
     @JoinColumn(name = "WINNING_TICKET")
     private Ticket winningTicket;
 
-    /**
-     * Constructor
-     */
     public Lottery() {
     }
 
-    /**
-     * Constructor
-     *
-     * @param pullDate
-     */
+
     public Lottery(Date pullDate) {
         this.pullDate = pullDate;
     }
 
-    /**
-     * Constructor
-     *
-     * @param pullDate
-     * @param tickets
-     */
     public Lottery(Date pullDate, List<Ticket> tickets) {
         this.pullDate = pullDate;
         this.tickets = tickets;
@@ -83,9 +67,6 @@ public class Lottery {
                 '}';
     }
 
-    /**
-     * @return List of sold tickets or null if no tickets sold
-     */
     public List<Ticket> getTickets() {
         if (tickets != null) {
             return tickets;
